@@ -553,6 +553,40 @@ add_textbox(slide, 2, 6.5, 9.3, 0.6,
 
 
 # ══════════════════════════════════════════════════════════════
+# SLIDE 19: QR Code — 掃碼瀏覽完整網頁
+# ══════════════════════════════════════════════════════════════
+slide = new_slide()
+add_bg(slide, NAVY)
+
+add_textbox(slide, 1, 0.6, 11.3, 0.8,
+    "掃碼瀏覽完整旅程紀錄", 36, WHITE, True, PP_ALIGN.CENTER)
+add_gold_line(slide, 5.5, 1.5, 2.3)
+add_textbox(slide, 2, 1.9, 9.3, 0.5,
+    "用手機掃描 QR Code，即可瀏覽線上版朝聖之路紀錄",
+    15, SUBTLE, False, PP_ALIGN.CENTER)
+
+# QR Code — centered, square
+qr_size = 4.0
+qr_x = (13.333 - qr_size) / 2
+qr_y = 2.7
+# White background behind QR code for contrast
+qr_bg = slide.shapes.add_shape(MSO_SHAPE.ROUNDED_RECTANGLE,
+    Inches(qr_x - 0.25), Inches(qr_y - 0.25),
+    Inches(qr_size + 0.5), Inches(qr_size + 0.5))
+qr_bg.fill.solid()
+qr_bg.fill.fore_color.rgb = WHITE
+qr_bg.line.fill.background()
+# QR code image
+slide.shapes.add_picture(img_path("qrcode.png"),
+    Inches(qr_x), Inches(qr_y),
+    Inches(qr_size), Inches(qr_size))
+
+add_textbox(slide, 2, 7.0, 9.3, 0.4,
+    "感謝聆聽，願神祝福每一位",
+    14, GOLD_LIGHT, False, PP_ALIGN.CENTER)
+
+
+# ══════════════════════════════════════════════════════════════
 # Slide Transitions
 # ══════════════════════════════════════════════════════════════
 from pptx.oxml.ns import qn
@@ -618,6 +652,7 @@ transitions = [
     ("fade",    "med"),    # 16 旅途光影 1/2
     ("fade",    "med"),    # 17 旅途光影 2/2
     ("fade",    "slow"),   # 18 感恩結語
+    ("fade",    "slow"),   # 19 QR Code
 ]
 
 for i, slide in enumerate(prs.slides):
