@@ -1,0 +1,17 @@
+# Generated files
+朝聖之路.pptx
+*.url
+
+# Python
+__pycache__/
+*.pyc
+
+# OS
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# IDE / Tools
+.vscode/
+.idea/
+.claude/

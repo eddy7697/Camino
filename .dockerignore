@@ -1,0 +1,8 @@
+.claude/
+*.pptx
+create_pptx.py
+note.md
+.git/
+.gitignore
+Dockerfile
+.dockerignore
